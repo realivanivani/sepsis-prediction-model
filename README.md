@@ -1,0 +1,1 @@
+This repository contains the code and resources for a Predictive Sepsis Detection project. The project aims to develop a system for automated medical diagnosis using Electronic Health Records (EHR) to predict the onset of sepsis.
