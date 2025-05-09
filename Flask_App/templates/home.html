@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Sepsis Detection</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='healthcare_logo.png') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.1px ;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            width: 50px; 
+            height: auto;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            display: inline-block;
+            vertical-align: middle;
+            color: #044f95;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+            color: #044f95;
+        }
+        form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select { 
+            width: calc(100% - 22px); 
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+        }
+ 
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container" style="max-width: 200px;">
+            <img src="{{ url_for('static', filename='healthcare_logo.png') }}" alt="Logo" class="logo">
+            <div class="logo-text">Medical Care</div>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Predictive Sepsis Detection</h1>
+        <form action="/predict" method="post">
+            <label for="HR">Heart Rate (bpm)</label>
+            <input type="number" id="HR" name="HR" step="0.01" required>
+            <label for="O2Sat">Oxygen Saturation (%)</label>
+            <input type="number" id="O2Sat" name="O2Sat" step="0.01" required>
+            <label for="Temp">Temperature (°C)</label>
+            <input type="number" id="Temp" name="Temp" step="0.01" required>
+            <label for="SBP">Systolic Blood Pressure (mmHg)</label>
+            <input type="number" id="SBP" name="SBP" step="0.01" required>
+            <label for="MAP">Mean Arterial Pressure (mmHg)</label>
+            <input type="number" id="MAP" name="MAP" step="0.01" required>
+            <label for="DBP">Diastolic Blood Pressure (mmHg)</label>
+            <input type="number" id="DBP" name="DBP" step="0.01" required>
+            <label for="Resp">Respiratory Rate (bpm)</label>
+            <input type="number" id="Resp" name="Resp" step="0.01" required>
+            <label for="Glucose">Glucose (mg/dL)</label>
+            <input type="number" id="Glucose" name="Glucose" step="0.01" required>
+            <label for="Age">Age (years)</label>
+            <input type="number" id="Age" name="Age" required>
+            <label for="Gender">Gender</label>
+            <select id="Gender" name="Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <label for="HospAdmTime">Hospital Admit Time</label>
+            <input type="number" id="HospAdmTime" name="HospAdmTime" step="0.01" required>
+            <label for="ICULOS">ICU Length of Stay (hours)</label>
+            <input type="number" id="ICULOS" name="ICULOS" step="0.01" required>
+            <input type="submit" value="Predict Sepsis Risk">
+        </form>
+    </div>
+</body>
+<footer class="footer"></footer>
+</html>
